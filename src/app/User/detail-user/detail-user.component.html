@@ -1,0 +1,19 @@
+<div>
+    <div *ngIf="user">
+        <h1>id: {{user.id}}</h1>
+        <p>{{user.username}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.role}}</p>
+        <a [routerLink]="['/users']">Nazad na listu</a>
+        <a> | </a>
+        <button (click)="deleteUser(user.id)">Delete</button>
+        <a> | </a>
+        <button>Update</button>
+    </div>
+    <h1 *ngIf="!user && fetchDone">
+        Nema Detalja!
+    </h1>
+    <a *ngIf="!user && fetchDone" [routerLink]="['/users']">
+        Nazad na listu
+    </a>
+</div>

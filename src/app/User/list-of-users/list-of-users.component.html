@@ -1,0 +1,30 @@
+<div>
+    <h3>Search</h3>
+    <input [(ngModel)]="searchText" placeholder="Search">
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | filterPipe : searchText; index as i;">
+                <th scope="row">{{user.id}}</th>
+                <th>{{user.username}}</th>
+                <td>{{user.email}}</td>
+                <td>{{user.role}}</td>
+                <td>
+                    <a [routerLink]="['/user', user.id]">Detalji</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<button [routerLink]="['/add-new']">Dodaj novog Usera</button>
